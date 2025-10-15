@@ -45,14 +45,14 @@ def process_messages():
             try:
                 current_dir = os.path.dirname(__file__)
                 script_path = os.path.join(current_dir, "../model/face_recognition.py")
-
+                data_path   = os.path.join(current_dir, "../model/data.pt")
 
 
                 # Use the same interpreter you're running now
                 result = subprocess.run(
-                    [sys.executable, script_path, '/tmp/' + filename],
+                    [sys.executable, script_path, '/tmp/' + filename, data_path],
                     capture_output=True,
-                    text=True,
+                    text=True,s
                     check=True,
                 )
                 
