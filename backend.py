@@ -2,6 +2,7 @@ import os
 import boto3
 import time
 import subprocess, json, sys
+from pathlib import Path
 
 # Replace with your ASU ID
 ASU_ID = "1229175872"
@@ -47,10 +48,13 @@ def process_messages():
                 script_path = os.path.join(current_dir, "../model/face_recognition.py")
                 data_path   = os.path.join(current_dir, "../model/data.pt")
 
+                model_dir = Path(__file__).resolve().parent.parent / "model"
+                image_path = Path(current_dir / "tmp" / filename).resolve()
 
                 # Use the same interpreter you're running now
                 result = subprocess.run(
-                    [sys.executable, script_path, '/tmp/' + filename, data_path],
+                    [sys.executable, 'face_recognition.py', str(image_path)],
+                    cwd=str(model_dir),
                     capture_output=True,
                     text=True,
                     check=True,
