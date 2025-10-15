@@ -10,9 +10,10 @@ RESPONSE_QUEUE_URL = f"https://sqs.us-east-1.amazonaws.com/471112545394/{ASU_ID}
 INPUT_BUCKET_NAME = f"{ASU_ID}-in-bucket"
 OUTPUT_BUCKET_NAME = f"{ASU_ID}-out-bucket"
 
+print('before connection')
 sqs = boto3.client('sqs', region_name='us-east-1')
 s3 = boto3.client('s3', region_name='us-east-1')
-
+print('after connection')
 
 def process_messages():
     while True:
