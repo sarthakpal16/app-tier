@@ -52,7 +52,7 @@ def process_messages():
                 result = subprocess.run(
                     [sys.executable, script_path, '/tmp/' + filename, data_path],
                     capture_output=True,
-                    text=True,s
+                    text=True,
                     check=True,
                 )
                 
