@@ -24,7 +24,7 @@ def process_messages():
                 MaxNumberOfMessages=1,
                 WaitTimeSeconds=5
             )
-
+            print("Received response from SQS:", response)
             if 'Messages' not in response:
                 print("No messages in queue, waiting...")
                 time.sleep(5)
@@ -80,6 +80,7 @@ def process_messages():
                     }
                 }
             )
+            print(f"Sent message to response queue with correlation_id: {corr_id}")
 
             # Delete the message from the request queue
             sqs.delete_message(
@@ -87,9 +88,10 @@ def process_messages():
                 ReceiptHandle=receipt_handle
             )
 
+            print(f"Deleted message from request queue: {filename}")
             # Delete the temporary file
             os.remove('/tmp/' + filename)
-
+            print(f"Deleted temporary file /tmp/{filename}")    
             print(f"Successfully processed {filename}, result: {name}")
 
         except Exception as e:
