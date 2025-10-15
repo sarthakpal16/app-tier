@@ -5,8 +5,8 @@ import subprocess, json, sys
 
 # Replace with your ASU ID
 ASU_ID = "1229175872"
-REQUEST_QUEUE_URL = f"https://sqs.us-east-1.amazonaws.com/471112545394/{ASU_ID}-req-queue"
-RESPONSE_QUEUE_URL = f"https://sqs.us-east-1.amazonaws.com/471112545394/{ASU_ID}-resp-queue"
+REQUEST_QUEUE_URL = f"https://sqs.us-east-1.amazonaws.com/551765811849/1229175872-req-queue"
+RESPONSE_QUEUE_URL = f"https://sqs.us-east-1.amazonaws.com/551765811849/1229175872-resp-queue"
 INPUT_BUCKET_NAME = f"{ASU_ID}-in-bucket"
 OUTPUT_BUCKET_NAME = f"{ASU_ID}-out-bucket"
 
