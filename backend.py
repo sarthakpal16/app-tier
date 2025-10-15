@@ -10,10 +10,10 @@ RESPONSE_QUEUE_URL = f"https://sqs.us-east-1.amazonaws.com/551765811849/12291758
 INPUT_BUCKET_NAME = f"{ASU_ID}-in-bucket"
 OUTPUT_BUCKET_NAME = f"{ASU_ID}-out-bucket"
 
-print('before connection')
+
 sqs = boto3.client('sqs', region_name='us-east-1')
 s3 = boto3.client('s3', region_name='us-east-1')
-print('after connection')
+
 
 def process_messages():
     while True:
@@ -24,7 +24,7 @@ def process_messages():
                 MaxNumberOfMessages=1,
                 WaitTimeSeconds=5
             )
-            print("Received response from SQS:", response)
+            
             if 'Messages' not in response:
                 print("No messages in queue, waiting...")
                 time.sleep(5)
@@ -88,7 +88,6 @@ def process_messages():
                 ReceiptHandle=receipt_handle
             )
 
-            print(f"Deleted message from request queue: {filename}")
             # Delete the temporary file
             os.remove('/tmp/' + filename)
             print(f"Deleted temporary file /tmp/{filename}")    
