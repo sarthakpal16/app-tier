@@ -93,8 +93,8 @@ def process_messages():
             )
 
             # Delete the temporary file
-            os.remove('/tmp/' + filename)
-            print(f"Deleted temporary file /tmp/{filename}")    
+            # os.remove('/tmp/' + filename)
+            # print(f"Deleted temporary file /tmp/{filename}")    
             print(f"Successfully processed {filename}, result: {name}")
 
         except Exception as e:
