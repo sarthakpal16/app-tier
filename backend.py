@@ -33,10 +33,11 @@ def process_messages():
 
             message = response['Messages'][0]
             receipt_handle = message['ReceiptHandle']
-
+            print("Received message:", message)
             filename = message['Body']
             corr_id = "default_corr_id"
             if 'MessageAttributes' in message and 'correlation_id' in message['MessageAttributes']:
+
                 corr_id = message['MessageAttributes']['correlation_id']['StringValue']
             
             # Download the image from S3 input bucket
