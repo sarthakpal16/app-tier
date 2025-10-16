@@ -22,6 +22,7 @@ def process_messages():
             # Retrieve message from SQS request queue
             response = sqs.receive_message(
                 QueueUrl=REQUEST_QUEUE_URL,
+                MessageAttributeNames=['All'],
                 MaxNumberOfMessages=1,
                 WaitTimeSeconds=5
             )
