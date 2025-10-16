@@ -49,7 +49,7 @@ def process_messages():
                 data_path   = os.path.join(current_dir, "../model/data.pt")
 
                 model_dir = Path(__file__).resolve().parent.parent / "model"
-                image_path = Path(current_dir / "tmp" / filename).resolve()
+                image_path = Path('/tmp') / filename
 
                 # Use the same interpreter you're running now
                 result = subprocess.run(
